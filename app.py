@@ -1,3 +1,7 @@
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 import os
 import streamlit as st
 from dotenv import load_dotenv
@@ -8,10 +12,6 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import CharacterTextSplitter
 import chromadb
 from chromadb.utils import embedding_functions
-
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 st.set_page_config(layout='centered')
 st.markdown("### Store Ops Assistant 🙋🏻‍♂️")
